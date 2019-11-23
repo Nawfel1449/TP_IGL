@@ -4,11 +4,6 @@ import {User} from './user.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './css/buttonsub.css';
 
-var users=[{mat:170186,nom:'yaici',prenom:'walid',absent:null},
-{mat:170186,nom:'yaici',prenom:'walid',absent:null},
-{mat:170190,nom:'deroues',prenom:'noufel',absent:null},
-{mat:170001,nom:'etic',prenom:'dream team',absent:null},
-{mat:170125,nom:'guendouz',prenom:'yanis',absent:null},]
 export default class Square extends React.Component {
 	constructor(props){
 		super(props);
@@ -42,7 +37,7 @@ export default class Square extends React.Component {
 				        <User us={user} key={index} onClick={this.handlePresenceClick} />
 				      ))}
 					</div>
-					<Link to="/angular"><div class="button_cont" align="center">
+					<Link to="/home/Form"><div class="button_cont" align="center">
 					<a class="example_e" href="add-website-here" target="_blank" rel="nofollow noopener">
 					Envoyer Liste</a></div></Link>
 				</div>
