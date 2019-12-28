@@ -9,21 +9,27 @@ import Footer from './footer.js';
 import Navb from './Navbar.js';
 import Login from './Login.js';
 import Formabs from './Formabs.js';
-
+import FormAjout from './Formajout.js';
+import ListeEtudiant from './ListeEtudiant.js'
+import axios from 'axios';
+import {Redirect} from 'react-router';
 
 var email;
 var lien;
 var group;
 var modul=["ALG","ANA1","ANA2","ANA3"];
-var eleves=[{mat:170186,nom:'yaici',prenom:'walid',absent:null},
-{mat:170186,nom:'yaici',prenom:'walid',absent:null},
-{mat:170190,nom:'deroues',prenom:'noufel',absent:null},
-{mat:170001,nom:'etic',prenom:'dream team',absent:null},
-{mat:170125,nom:'guendouz',prenom:'yanis',absent:null},]
+var eleves=[];
 
 export default class App extends React.Component {
-  
-  render(){
+
+	constructor(props) {
+    super(props)
+    this.handleFormabsClick= this.handleFormabsClick.bind(this)
+		this.handleFormajoutClick= this.handleFormajoutClick.bind(this)
+
+  }
+
+	render(){
   return (
 
     <div id="App">
@@ -32,8 +38,11 @@ export default class App extends React.Component {
       <Route path="/home" render={() => (<Navb id={email} />)} />
       <Route path="/home" component={SideBar} />
       <div id="page-wrap">
-      <Route path="/home/Form" render={() => (<Formabs link="/home/Abs" modules={modul}/>)}/>
+        <Route path="/home/Form" render={() => (<Formabs link="/home/Abs" modules={modul} onClick={this.handleFormabsClick}/>)}/>
         <Route path="/home/Abs" render={() => (<Square eleves={eleves} />)}/>
+				<Route path="/home/AjouterEtudiant" render={() => (<FormAjout link="/home/Listetudiant" onClick={this.handleFormajoutClick}/>)}/>
+				<Route path="/home/Listetudiant" render={() => (<ListeEtudiant eleves={eleves} />)}/>
+
       </div>
       <Footer/>
     </div>
@@ -42,16 +51,36 @@ export default class App extends React.Component {
   )}
 
   handleLoginClick(em,admin,ens,etu){
-    
     if(!true){
-      lien="";
       alert("Erreur d'authentification");
       }else {
       if(ens) lien="/home/Form";
+			else if (admin) lien="/home/AjouterEtudiant";
       email=em;
+			this.props.history.push('/dashboard')
       console.log(email);
     }
   }
 
- 
+	handleFormabsClick(){
+		axios.get(`http://127.0.0.1:8000/api/Student`)
+			.then(res => {
+        eleves=res.data;
+				this.setState({});
+
+      })
+	}
+
+	handleFormajoutClick(groupe){
+		group=groupe;
+		eleves=[];
+		axios.get(`http://127.0.0.1:8000/api/Student`)
+			.then(res => {
+        eleves=res.data;
+				this.setState({});
+
+      })
+	}
+
+
 }
