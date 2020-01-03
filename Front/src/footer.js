@@ -2,8 +2,11 @@ import React from 'react';
 import './css/footer.css';
 import ReactDOM from 'react-dom';
 
-export default class Footer extends React.Component{
-    
+/**@class composant pour afficher le footer de l'application
+
+*/
+class Footer extends React.Component{
+
     render(){
     return(
   <div class="content">
@@ -11,8 +14,8 @@ export default class Footer extends React.Component{
         <div class="footer one">
           <h3>More About ESI-SCOLARITE</h3>
           <p> ESI SCOLARITE est une application de gestion de scolarité developpé par
-          des etudiant de l'ecole nationale superieur d'informatique dans le but de faciliter 
-          la gestion des differentes taches en rapport avec la scolarité  
+          des etudiant de l'ecole nationale superieur d'informatique dans le but de faciliter
+          la gestion des differentes taches en rapport avec la scolarité
           </p>
           <p class="adam">- ESI</p>
           <div class="clear"></div>
@@ -53,3 +56,4 @@ export default class Footer extends React.Component{
     </div>)}
 }
 
+export default Footer;

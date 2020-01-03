@@ -4,8 +4,15 @@ import {Etudiant} from './etudiant.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './css/buttonsub.css';
 
+/**@class
 
-export default class ListeEtudiant extends React.Component {
+*/
+
+/**
+* composant pour afficher la liste des etudants d'un groupe.
+* @prop {etudiant[]} eleves tableau de composants representant les etudiants d'un groupe.
+*/
+class ListeEtudiant extends React.Component {
 	constructor(props){
 		super(props);
 	}
@@ -47,3 +54,4 @@ export default class ListeEtudiant extends React.Component {
 
 
 }
+export default ListeEtudiant;
