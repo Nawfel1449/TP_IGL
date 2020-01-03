@@ -4,13 +4,16 @@ import React from 'react';
 import {slide as Menu } from 'react-burger-menu';
 import ReactDOM from 'react-dom';
 import './css/sidebar.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-export default class SideBar extends React.Component {
+import {Link } from "react-router-dom";
+/**@class composant pour afficher la bare de navigation de l'application
+
+*/
+class SideBar extends React.Component {
 
   render(){
   return (
     <Menu className="menu">
-      <Link to="/home">
+      <Link to="/home/Abs">
         <div class="box-1">
           <div class="btn btn-one">
             <span>Saisir Absense</span>
@@ -38,8 +41,10 @@ export default class SideBar extends React.Component {
           </div>
         </div>
       </Link>
-      
+
     </Menu>
   )
 }
 }
+
+export default SideBar;

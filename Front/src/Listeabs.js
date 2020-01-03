@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom';
 import {User} from './user.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './css/buttonsub.css';
+/**@class
 
-export default class Square extends React.Component {
+*/
+
+/**
+* composant pour afficher la liste d'absences.
+* @prop {user[]} eleves tableau de composants representant les etudiants d'un groupe.
+*/
+class Square extends React.Component {
 	constructor(props){
 		super(props);
 		this.handlePresenceClick=this.handlePresenceClick.bind(this)
 	}
-	
+
 	render () {
 	  return (
 	  	<div class="limiter">
@@ -43,19 +50,24 @@ export default class Square extends React.Component {
 				</div>
 			</div>
 		</div>
-		
+
 	  )
 	}
 
+	/**
+	* appelé si on clic sur le champ present ou absent de la liste de presence pour indiquer si l'etudiant est present ou absent.
+	*@param {user} user composant representant l'etudiant.
+	*@param {boolean} bool boolean indiquant si l'etudiant est present ou absent.
+	*/
 	handlePresenceClick(user,bool){
-		
-		users[users.indexOf(user)].absent=bool;
+		this.props.eleves[this.props.eleves.indexOf(user)].absent=bool;
 		this.setState({});
-		console.log(users[users.indexOf(user)]);
 
 	}
 
 
-  
+
+
 }
 
+export default Square;

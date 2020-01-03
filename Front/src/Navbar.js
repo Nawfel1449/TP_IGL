@@ -4,9 +4,11 @@ import {Navbar,Form,Nav,NavDropdown,FormControl,Button} from "react-bootstrap";
 import ReactDOM from 'react-dom';
 import './css/nav.css';
 import Login from './Login.js';
+/**@class composant pour afficher la bare de navigation de l'application
 
-export default class Navb extends React.Component {
-	
+*/
+class Navb extends React.Component {
+
 	render(){
   return (
     <Navbar bg="light" expand="lg">
@@ -26,8 +28,9 @@ export default class Navb extends React.Component {
 		      </NavDropdown>
 		    </Nav>
 		    <Form inline>
-		      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-		      <img src="../user.png" /><span  id="id-texte">{this.props.id}</span>
+				<Link to={"/"}><Button className="but" >
+					Deconnexion </Button></Link>
+					<img src="../user.png" /><span  id="id-texte">{this.props.id}</span>
 		    </Form>
   		</Navbar.Collapse>
 	</Navbar>
@@ -35,5 +38,6 @@ export default class Navb extends React.Component {
 
   )}
 
- 
+
 }
+export default Navb;
